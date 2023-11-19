@@ -3,7 +3,12 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    # RefineのuseMany({ resource: "categories", id: record?.user_id || ''})でids[]=1&ids[]=2のように渡ってくる
+    @categories = if params[:ids].blank?
+                    Category.all
+                  else
+                    Category.where(id: params[:ids])
+                  end
   end
 
   # GET /categories/1 or /categories/1.json

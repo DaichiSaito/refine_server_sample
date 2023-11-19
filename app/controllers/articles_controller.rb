@@ -65,6 +65,8 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :draft, :user_id)
+      # category_idsがarticleというキーの中に入ってこないのでrequireを消した
+      # params.require(:article).permit(:title, :content, :draft, :user_id, category_ids: [])
+      params.permit(:title, :content, :draft, :user_id, category_ids: [])
     end
 end
