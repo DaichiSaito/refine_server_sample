@@ -1,10 +1,17 @@
 # README
 
-* Ruby version
+## Ruby version
+
 3.2.2
 
-* セットアップ
-bin/rails db:setup
+## セットアップ
 
-* 起動
+```bash
+bin/rails db:setup
+```
+
+## 起動
+
+```bash
 bin/rails s
+```
